@@ -93,6 +93,8 @@ public class RedisUtil {
 	 * @return 值
 	 */
 	public Object get(String key) {
+		System.out.println(key);
+		System.out.println(redisTemplate.opsForValue().get(key));
 		return key == null ? null : redisTemplate.opsForValue().get(key);
 	}
 

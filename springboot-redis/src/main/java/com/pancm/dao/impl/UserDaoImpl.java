@@ -27,6 +27,7 @@ public class UserDaoImpl implements UserDao {
 	 */
 	@Override
 	public void addUser(User user) {
+		System.out.println(user.getId());
 		redisUtil.set(String.valueOf(user.getId()), user.toString());
 	}
 

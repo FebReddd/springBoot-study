@@ -1,5 +1,6 @@
 package com.pancm.web;
 
+import io.swagger.annotations.Api;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,6 +29,7 @@ import com.pancm.service.UserService;
  */
 @RestController
 @RequestMapping(value = "/api")
+@Api(tags = "数据查询")
 public class UserRestController {
 	
 	private  final Logger logger = LoggerFactory.getLogger(this.getClass());
