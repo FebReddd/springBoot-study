@@ -2,7 +2,7 @@ FROM java:8
 
 VOLUME /ROOT
 
-ADD springboot2-docker.jar springboot2-docker.jar
+ADD /target/springboot2-docker.jar springboot2-docker.jar
 
 RUN bash -c 'touch /springboot2-docker.jar'
 

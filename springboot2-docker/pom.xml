@@ -43,9 +43,6 @@
 
 
     <build>
-        <defaultGoal>compile</defaultGoal>
-        <sourceDirectory>src</sourceDirectory>
-        <finalName>springboot2-docker</finalName>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
@@ -87,8 +84,33 @@
                 </configuration>
             </plugin>
             <!-- Docker maven plugin -->
+
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <fork>true</fork> <!-- 如果没有该配置，devtools不会生效 -->
+                </configuration>
+            </plugin>
+
         </plugins>
-
-    </build>
-
+            <resources>
+                <!--打成jar包-->
+                <resource>
+                    <directory>src/main/resources</directory>
+                    <includes>
+                        <include>**/*</include>
+                    </includes>
+                </resource>
+                <resource>
+                    <directory>lib</directory>
+                    <targetPath>META-INF</targetPath>
+                    <includes>
+                        <include>
+                            **/*.jar
+                        </include>
+                    </includes>
+                </resource>
+            </resources>
+        </build>
 </project>
